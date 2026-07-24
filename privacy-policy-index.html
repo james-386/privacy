@@ -1,0 +1,200 @@
+<title>PlayNyx — Πολιτική Απορρήτου</title>
+<style>
+  :root{
+    --bg:#14101C; --surface:#1D1329; --surface-2:#241831; --text:#F5F1EC; --text-dim:#B7ABC9;
+    --border:#3A2C4A; --accent:#B39CFF; --accent-strong:#A88BFF; --gold:#FFD23F;
+    --good:#7FD9A6; --radius:16px;
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#F7F4EF; --surface:#FFFFFF; --surface-2:#F1ECE3; --text:#231A30; --text-dim:#5B4F6E;
+      --border:#E4DEEF; --accent:#6E4CE0; --accent-strong:#5B3BD1; --gold:#B8860B; --good:#1F8A54;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14101C; --surface:#1D1329; --surface-2:#241831; --text:#F5F1EC; --text-dim:#B7ABC9;
+    --border:#3A2C4A; --accent:#B39CFF; --accent-strong:#A88BFF; --gold:#FFD23F; --good:#7FD9A6;
+  }
+  :root[data-theme="light"]{
+    --bg:#F7F4EF; --surface:#FFFFFF; --surface-2:#F1ECE3; --text:#231A30; --text-dim:#5B4F6E;
+    --border:#E4DEEF; --accent:#6E4CE0; --accent-strong:#5B3BD1; --gold:#B8860B; --good:#1F8A54;
+  }
+
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;
+    font-size:16.5px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  .display{
+    font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;
+    font-weight:800; letter-spacing:-.01em; text-wrap:balance;
+  }
+  a{ color:var(--accent-strong); }
+
+  .shell{ max-width:760px; margin:0 auto; padding:0 24px 96px; }
+
+  header.top{
+    display:flex; align-items:center; gap:10px; padding:36px 0 28px;
+    border-bottom:1px solid var(--border); margin-bottom:40px;
+  }
+  header.top svg{ width:26px; height:26px; flex:none; }
+  header.top .word{ font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif; font-weight:800; font-size:19px; }
+  header.top .word .nyx{ color:var(--accent-strong); }
+  header.top .sep{ color:var(--text-dim); opacity:.5; }
+  header.top .doc{ color:var(--text-dim); font-size:15px; }
+
+  h1{ font-size:clamp(28px,5vw,38px); margin:0 0 8px; }
+  .updated{ color:var(--text-dim); font-size:14px; margin:0 0 32px; }
+
+  .summary{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    padding:22px 24px; margin-bottom:44px;
+  }
+  .summary .eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--accent-strong); margin-bottom:10px;
+  }
+  .summary ul{ margin:0; padding-left:20px; display:flex; flex-direction:column; gap:8px; }
+  .summary li::marker{ color:var(--good); }
+
+  section{ margin-bottom:38px; }
+  section h2{
+    font-size:21px; margin:0 0 12px; display:flex; align-items:baseline; gap:10px;
+  }
+  section h2 .n{ color:var(--accent-strong); font-variant-numeric:tabular-nums; font-size:15px; opacity:.8; }
+  section p{ margin:0 0 12px; color:var(--text); max-width:65ch; }
+  section p.dim{ color:var(--text-dim); }
+  section ul{ margin:0 0 12px; padding-left:20px; max-width:65ch; }
+  section li{ margin-bottom:6px; }
+
+  .apps{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin:16px 0 4px;
+  }
+  .app-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px;
+  }
+  .app-card .name{ font-weight:700; font-size:15px; }
+  .app-card .desc{ color:var(--text-dim); font-size:13.5px; margin-top:3px; }
+
+  table{ width:100%; border-collapse:collapse; margin:12px 0 16px; font-size:14.5px; }
+  th,td{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+  th{ color:var(--text-dim); font-weight:600; font-size:12.5px; text-transform:uppercase; letter-spacing:.04em; }
+
+  .badge{
+    display:inline-block; font-size:12px; font-weight:700; padding:3px 9px; border-radius:999px;
+    background:var(--surface-2); color:var(--good); border:1px solid var(--border);
+  }
+
+  footer{
+    margin-top:56px; padding-top:24px; border-top:1px solid var(--border);
+    color:var(--text-dim); font-size:14px;
+  }
+  footer a{ color:var(--accent-strong); }
+
+  @media (max-width:520px){
+    .shell{ padding:0 18px 80px; }
+    header.top{ flex-wrap:wrap; }
+  }
+</style>
+
+<div class="shell">
+  <header class="top">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <defs><linearGradient id="nyxg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#B9A5FF"/><stop offset="1" stop-color="#7C5CFF"/>
+      </linearGradient></defs>
+      <path d="M14.6 2.8 A 9.4 9.4 0 1 0 21.2 15.6 A 7.5 7.5 0 0 1 14.6 2.8 Z" fill="url(#nyxg)"/>
+      <path d="M17.8 3.4 l.85 1.95 1.95 .85 -1.95 .85 -.85 1.95 -.85 -1.95 -1.95 -.85 1.95 -.85 z" fill="var(--gold)"/>
+    </svg>
+    <span class="word">Play<span class="nyx">Nyx</span></span>
+    <span class="sep">/</span>
+    <span class="doc">Πολιτική Απορρήτου</span>
+  </header>
+
+  <h1 class="display">Πολιτική Απορρήτου</h1>
+  <p class="updated">Ισχύει από 24 Ιουλίου 2026 — αφορά όλα τα παιχνίδια της PlayNyx</p>
+
+  <div class="summary">
+    <div class="eyebrow">Σύντομα, πριν μπείτε στις λεπτομέρειες</div>
+    <ul>
+      <li>Τα παιχνίδια PlayNyx <strong>δεν στέλνουν κανένα δεδομένο σας σε server</strong> — όλα μένουν στη συσκευή σας.</li>
+      <li>Δεν υπάρχει λογαριασμός, δεν υπάρχει εγγραφή, δεν συλλέγουμε όνομα, email ή τηλέφωνο.</li>
+      <li>Δεν χρησιμοποιούμε αναλυτικά (analytics) ούτε SDK τρίτων αυτή τη στιγμή.</li>
+      <li>Ένα παιχνίδι περιέχει προαιρετικό περιεχόμενο 18+ — δείτε την ενότητα <a href="#ilikia">Ηλικιακά όρια</a>.</li>
+    </ul>
+  </div>
+
+  <section>
+    <h2><span class="n">01</span> Ποιες εφαρμογές καλύπτει</h2>
+    <p>Αυτή η πολιτική καλύπτει όλες τις εφαρμογές που δημοσιεύει η PlayNyx στο Google Play:</p>
+    <div class="apps">
+      <div class="app-card"><div class="name">🔥 Αναπτήρας</div><div class="desc">Ποιος είναι πιο πιθανό να...</div></div>
+      <div class="app-card"><div class="name">Θάρρος ή Αλήθεια</div><div class="desc">Truth or Dare</div></div>
+      <div class="app-card"><div class="name">🖐️ Εγώ Ποτέ Δεν</div><div class="desc">Never Have I Ever</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="n">02</span> Τι δεδομένα αποθηκεύουμε</h2>
+    <p>Κάθε εφαρμογή αποθηκεύει κάποιες ρυθμίσεις <strong>μόνο τοπικά, μέσα στη συσκευή σας</strong> (μέσω του τοπικού αποθηκευτικού χώρου του browser/εφαρμογής — <code>localStorage</code>), ώστε να θυμάται τις προτιμήσεις σας ανάμεσα σε sessions. Αυτά τα δεδομένα δεν φεύγουν ποτέ από τη συσκευή σας — δεν υπάρχει server να τα λάβει.</p>
+    <table>
+      <tr><th>Τι αποθηκεύεται τοπικά</th><th>Γιατί</th></tr>
+      <tr><td>Ονόματα παικτών που πληκτρολογείτε</td><td>Για να εμφανίζονται στο γύρο και στο τελικό σκορ</td></tr>
+      <tr><td>Δικές σας ερωτήσεις/προκλήσεις που προσθέτετε</td><td>Ώστε να τις ξαναδείτε την επόμενη φορά</td></tr>
+      <tr><td>Ρύθμιση ήχου (on/off)</td><td>Να θυμάται την προτίμησή σας</td></tr>
+      <tr><td>Επιλεγμένες κατηγορίες</td><td>Ευκολία — δεν χρειάζεται να τις ξαναδιαλέγετε</td></tr>
+    </table>
+    <p class="dim">Μπορείτε να διαγράψετε όλα τα παραπάνω ανά πάσα στιγμή αδειάζοντας τα δεδομένα της εφαρμογής από τις ρυθμίσεις της συσκευής σας, ή απλά κάνοντας απεγκατάσταση.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">03</span> Τι <em>δεν</em> συλλέγουμε</h2>
+    <ul>
+      <li>Δεν συλλέγουμε email, τηλέφωνο, τοποθεσία, φωτογραφίες ή επαφές.</li>
+      <li>Δεν υπάρχει σύστημα λογαριασμού ή σύνδεσης (login).</li>
+      <li>Δεν χρησιμοποιούμε εργαλεία analytics (π.χ. Google Analytics, Firebase Analytics) αυτή τη στιγμή.</li>
+      <li>Δεν πουλάμε και δεν μοιραζόμαστε δεδομένα με τρίτους — δεν υπάρχουν δεδομένα προς μοίρασμα.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">04</span> Άδειες συσκευής</h2>
+    <p>Οι εφαρμογές PlayNyx δεν ζητούν άδειες ευαίσθητες (κάμερα, μικρόφωνο, τοποθεσία, επαφές). Αν μια εφαρμογή προσφέρει προαιρετική λειτουργία κοινοποίησης αποτελέσματος («Μοιράσου το αποτέλεσμα»), αυτή χρησιμοποιεί το ενσωματωμένο μενού κοινοποίησης του λειτουργικού συστήματος — εσείς επιλέγετε πού θα σταλεί, εμείς δεν βλέπουμε ή αποθηκεύουμε τίποτα από αυτό.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">05</span> Διαφημίσεις <span class="badge">δεν είναι ενεργές ακόμα</span></h2>
+    <p>Οι εφαρμογές δεν εμφανίζουν διαφημίσεις αυτή τη στιγμή. Σχεδιάζουμε να ενσωματώσουμε μελλοντικά διαφημίσεις μέσω του Google AdMob για να διατηρήσουμε τις εφαρμογές δωρεάν. Όταν συμβεί αυτό:</p>
+    <ul>
+      <li>Θα ενημερώσουμε αυτή τη σελίδα πριν την ενεργοποίηση, με ημερομηνία αλλαγής.</li>
+      <li>Το AdMob ενδέχεται να χρησιμοποιεί αναγνωριστικό διαφημίσεων της συσκευής (advertising ID) για βασική εξατομίκευση — αυτό διέπεται από τη δική του <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">πολιτική απορρήτου της Google</a>.</li>
+      <li>Θα ενημερώνεται αντίστοιχα και η ενότητα «Data safety» της εφαρμογής στο Google Play.</li>
+    </ul>
+  </section>
+
+  <section id="ilikia">
+    <h2><span class="n">06</span> Ηλικιακά όρια &amp; περιεχόμενο 18+</h2>
+    <p>Τα παιχνίδια PlayNyx απευθύνονται σε ενήλικες παρέες. Ορισμένα παιχνίδια περιλαμβάνουν μία <strong>προαιρετική</strong> κατηγορία με ρητά σεξουαλικό περιεχόμενο (π.χ. «Βρώμικο &amp; Σεξ 18+», «Καυτό 18+»), ξεκάθαρα επισημασμένη στην επιλογή κατηγοριών. Οι εφαρμογές δεν απευθύνονται σε παιδιά και δεν σχεδιάστηκαν σύμφωνα με απαιτήσεις για παιδικό περιεχόμενο (π.χ. COPPA). Αν είστε κάτω των 18 ετών, μην επιλέγετε τις κατηγορίες αυτές.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">07</span> Ασφάλεια &amp; διατήρηση</h2>
+    <p>Επειδή τα δεδομένα μένουν αποκλειστικά στη συσκευή σας, δεν υπάρχει βάση δεδομένων μας που θα μπορούσε να παραβιαστεί ή να διαρρεύσει. Τα δεδομένα διατηρούνται όσο έχετε εγκατεστημένη την εφαρμογή· διαγράφονται αυτόματα με την απεγκατάσταση.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">08</span> Τα δικαιώματά σας</h2>
+    <p>Εφόσον δεν συλλέγουμε ούτε αποθηκεύουμε δεδομένα σε server, δεν υπάρχει τίποτα σε εμάς προς πρόσβαση, διόρθωση ή διαγραφή. Ο πλήρης έλεγχος των τοπικών δεδομένων είναι στα χέρια σας, μέσα από τις ρυθμίσεις της συσκευής σας.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">09</span> Αλλαγές σε αυτή την πολιτική</h2>
+    <p>Αν αλλάξει κάτι ουσιαστικό — κυρίως όταν ενεργοποιηθούν διαφημίσεις — θα ενημερώσουμε την ημερομηνία στην κορυφή της σελίδας και θα περιγράψουμε την αλλαγή.</p>
+  </section>
+
+  <footer>
+    <p>Ερωτήσεις για το απόρρητο; Επικοινωνήστε στο <a href="mailto:dimitriska0098@gmail.com">dimitriska0098@gmail.com</a>.</p>
+    <p>PlayNyx — παιχνίδια παρέας για ελληνικές παρέες.</p>
+  </footer>
+</div>
